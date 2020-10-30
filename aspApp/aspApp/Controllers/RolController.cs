@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using aspApp.Models;
+using aspApp.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace aspApp.Controllers
@@ -11,7 +12,8 @@ namespace aspApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            Rol_Repository rol_Repository = new Rol_Repository();
+            return View(rol_Repository.GetAll());
         }
 
         public IActionResult Add()
@@ -21,30 +23,41 @@ namespace aspApp.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View();
+            Rol_Repository rol_Repository = new Rol_Repository();
+            return View(rol_Repository.GetById(id));
         }
 
         public IActionResult Delete(int id)
         {
-            return View();
+            Rol_Repository rol_Repository = new Rol_Repository();
+            return View(rol_Repository.GetById(id));
         }
 
         [HttpPost]
         public IActionResult Add(Rol rol)
         {
-            return View();
+            Rol_Repository rol_Repository = new Rol_Repository();
+            rol_Repository.Insert(rol);
+            //return View();
+            return RedirectToAction("Index", "Rol");
         }
 
         [HttpPost]
         public IActionResult Edit(Rol rol)
         {
-            return View();
+            Rol_Repository rol_Repository = new Rol_Repository();
+            rol_Repository.Update(rol);
+            //return View();
+            return RedirectToAction("Index", "Rol");
         }
 
         [HttpPost]
         public IActionResult Delete(Rol rol)
         {
-            return View();
+            Rol_Repository rol_Repository = new Rol_Repository();
+            rol_Repository.Delete(rol);
+            //return View();
+            return RedirectToAction("Index", "Rol");
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿@model aspApp.Models.Rol
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rol - Add</h2>
+
+<div class="content">
+    <form action="~/Rol/Add" method="post">
+        <input type="text" asp-for="Name" placeholder="Rol" />
+        <input type="submit" value="Add" />
+        <a href="~/Rol">Cancel</a>
+    </form>
+</div>

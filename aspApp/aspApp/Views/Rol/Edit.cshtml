@@ -1,0 +1,16 @@
+﻿@model aspApp.Models.Rol
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rol - Edit</h2>
+
+<div class="content">
+    <form action="~/Rol/Edit" method="post">
+        <input type="text" asp-for="Id" readonly />
+        <input type="text" asp-for="Name" placeholder="Rol" />
+        <input type="submit" value="Save" />
+        <a href="~/Rol">Cancel</a>
+    </form>
+</div>
