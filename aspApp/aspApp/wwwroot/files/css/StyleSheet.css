@@ -1,0 +1,140 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    background-color: #D3D3D3;
+    font-family: 'Poppins';
+}
+
+body, main, .menu-items {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 100%;
+}
+
+main{
+    min-height: 100vh;
+    align-content: start;
+}
+
+.a-home{
+    padding: 10px;
+    font-weight: 700;
+    background-color: #000000;
+    color: #f5f5f5;
+}
+
+.a-action {
+    padding: 5px;
+}
+    .a-action:hover {
+        font-weight: 700;
+    }
+
+h2 {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #ffffff;
+    color: #1e1e1e;
+}
+
+    a:hover {
+        background-color: #f5f5f5;
+        color: #000000;
+    }
+
+    a:active {
+        background-color: #BBBBBB;
+    }
+
+input[type=submit] {
+    text-decoration: none;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-color: #ffffff;
+    color: #1e1e1e;
+    border: none;
+    font-family: 'Poppins';
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+    input[type=submit]:hover {
+        background-color: #f5f5f5;
+        color: #000000;
+        cursor: pointer;
+    }
+
+    input[type=submit]:active {
+        background-color: #BBBBBB;
+    }
+
+.menu-items a{
+    padding: 5px;
+}
+
+.menu-items a:hover{
+    font-weight: 700;
+}
+
+form {
+    display: grid;
+    grid-gap: 5px;
+    grid-auto-flow: row;
+    grid-template-columns: 100%;
+}
+
+table{
+    background-color: #ffffff;
+}
+
+table thead tr th{
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 5px 0;
+    font-weight: 400;
+}
+
+    table tbody tr:hover {
+        background-color: #D3D3D3;
+    }
+
+form input {
+    padding: 5px;
+}
+
+form input[type=text]{
+    border: 1px solid #1e1e1e;
+    border-radius: 2px;
+}
+
+form a {
+    font-family: 'Poppins';
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+.content {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 100%;
+    padding: 5px;
+}

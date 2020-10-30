@@ -1,0 +1,16 @@
+﻿@model aspApp.Models.Claims
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Claims - Add</h2>
+
+<div class="content">
+    <form action="~/Claims/Add" method="post">
+        <input type="text" asp-for="DisplayName" placeholder="Display name" />
+        <input type="text" asp-for="Content" placeholder="Content" />
+        <input type="submit" value="Add" />
+        <a href="~/Claims">Cancel</a>
+    </form>
+</div>

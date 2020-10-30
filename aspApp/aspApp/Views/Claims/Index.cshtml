@@ -1,0 +1,37 @@
+﻿@model IEnumerable<aspApp.Models.Claims>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int x = 1;
+}
+
+<h2>Claims - Index</h2>
+<a href="~/Claims/Add" class="a-action">Add</a>
+
+<div class="content">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>DisplayName</th>
+                <th>Content</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@x</td>
+                    <td>@item.Id</td>
+                    <td>@item.DisplayName</td>
+                    <td>@item.Content</td>
+                    <td><a href="~/Claims/Edit/@item.Id">Edit</a></td>
+                    <td><a href="~/Claims/Delete/@item.Id">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
