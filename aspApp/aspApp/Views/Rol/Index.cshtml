@@ -22,13 +22,13 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@x</td>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                    <td><a href="~/Rol/Edit/@item.Id">Edit</a></td>
-                    <td><a href="~/Rol/Delete/@item.Id">Delete</a></td>
-                </tr>
+            <tr>
+                <td>@x</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td><a href="~/Rol/Edit/@item.Id">Edit</a></td>
+                <td><a href="~/Rol/Delete/@item.Id">Delete</a></td>
+            </tr>
                 x++;
             }
         </tbody>

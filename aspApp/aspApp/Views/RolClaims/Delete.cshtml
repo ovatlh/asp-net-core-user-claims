@@ -1,0 +1,24 @@
+﻿@model aspApp.Models.Rolclaims
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RolClaims - Delete</h2>
+
+<div class="content">
+    <form action="~/RolClaims/Delete" method="post">
+        <input type="text" asp-for="Id" readonly />
+        <input type="text" asp-for="IdRol" readonly />
+        <input type="text" asp-for="IdRolNavigation" readonly />
+        <input type="text" asp-for="IdRolNavigation.Id" readonly />
+        <input type="text" asp-for="IdRolNavigation.Name" readonly />
+        <input type="text" asp-for="IdClaims" readonly />
+        <input type="text" asp-for="IdClaimsNavigation" readonly />
+        <input type="text" asp-for="IdClaimsNavigation.Id" readonly />
+        <input type="text" asp-for="IdClaimsNavigation.DisplayName" readonly />
+        <input type="text" asp-for="IdClaimsNavigation.Content" readonly />
+        <input type="submit" value="Delete" />
+        <a href="~/RolClaims">Cancel</a>
+    </form>
+</div>

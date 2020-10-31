@@ -1,0 +1,26 @@
+﻿@model aspApp.Models.Rolclaims
+@inject aspApp.Services.fkLists sfklists
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RolClaims - Add</h2>
+
+<div class="content">
+    <form action="~/RolClaims/Add" method="post">
+
+        <select asp-for="IdRol"
+                asp-items="@(new SelectList(sfklists.GetRols_List(), "Id", "Name", ViewBag.IdRol))">
+            <option value="0">Select Rol</option>
+        </select>
+
+        <select asp-for="IdClaims"
+                asp-items="@(new SelectList(sfklists.GetClaims_List(), "Id", "DisplayName", ViewBag.IdClaims))">
+            <option value="0">Select Claim</option>
+        </select>
+
+        <input type="submit" value="Add" />
+        <a href="~/RolClaims">Cancel</a>
+    </form>
+</div>

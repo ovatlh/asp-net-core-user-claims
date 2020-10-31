@@ -1,6 +1,38 @@
-﻿@{
+﻿@model IEnumerable<aspApp.Models.Rolclaims>
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int x = 1;
 }
 
 <h2>RolClaims - Index</h2>
+<a href="~/RolClaims/Add" class="a-action">Add</a>
+
+<div class="content">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Rol</th>
+                <th>Claim</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@x</td>
+                    <td>@item.Id</td>
+                    <td>@item.IdRolNavigation.Name</td>
+                    <td>@item.IdClaimsNavigation.DisplayName</td>
+                    <td><a href="~/RolClaims/Edit/@item.Id">Edit</a></td>
+                    <td><a href="~/RolClaims/Delete/@item.Id">Delete</a></td>
+                </tr>
+                x++;
+            }
+        </tbody>
+    </table>
+</div>

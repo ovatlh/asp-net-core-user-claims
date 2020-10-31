@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using aspApp.Models;
 using aspApp.Repositories;
+using aspApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace aspApp.Controllers
@@ -26,6 +27,12 @@ namespace aspApp.Controllers
             Rol_Repository rol_Repository = new Rol_Repository();
             return View(rol_Repository.GetById(id));
         }
+
+        //public IActionResult EditRolClaims(int id)
+        //{
+        //    Rol_RolClaims_Repository rol_RolClaims_Repository = new Rol_RolClaims_Repository();
+        //    return View(rol_RolClaims_Repository.GetRolClaims_VM(id));
+        //}
 
         public IActionResult Delete(int id)
         {
@@ -50,6 +57,13 @@ namespace aspApp.Controllers
             //return View();
             return RedirectToAction("Index", "Rol");
         }
+
+        //[HttpPost]
+        //public IActionResult EditRolClaims(Rol_RolClaims_VM rol_RolClaims_VM)
+        //{
+        //    Rol_RolClaims_Repository rol_RolClaims_Repository = new Rol_RolClaims_Repository();
+        //    return View(rol_RolClaims_Repository.GetRolClaims_VM(id));
+        //}
 
         [HttpPost]
         public IActionResult Delete(Rol rol)
