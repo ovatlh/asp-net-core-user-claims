@@ -1,0 +1,25 @@
+﻿@model aspApp.Models.User
+@inject aspApp.Services.fkLists sfklists
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User - Edit</h2>
+
+<div class="content">
+    <form action="~/User/Edit" method="post">
+        <input type="text" asp-for="Id" readonly />
+        <input type="text" asp-for="Username" placeholder="Username" />
+        <input type="text" asp-for="Password" placeholder="Password" />
+        <input type="text" asp-for="Name" placeholder="Name" />
+
+        <select asp-for="IdRol"
+                asp-items="@(new SelectList(sfklists.GetRols_List(), "Id", "Name", ViewBag.IdRol))">
+            <option value="0">Select Rol</option>
+        </select>
+
+        <input type="submit" value="Save" />
+        <a href="~/User">Cancel</a>
+    </form>
+</div>
