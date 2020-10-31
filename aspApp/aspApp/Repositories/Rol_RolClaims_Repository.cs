@@ -1,4 +1,5 @@
-﻿using aspApp.ViewModels;
+﻿using aspApp.Models;
+using aspApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,27 @@ namespace aspApp.Repositories
             };
 
             return rol_RolClaims_VM;
+        }
+
+        public void AddRolClaims(int idrol_value, int idclaims_value)
+        {
+            RolClaims_Repository rolClaims_Repository = new RolClaims_Repository();
+
+            Rolclaims new_rolclaims = new Rolclaims()
+            {
+                IdRol = idrol_value,
+                IdClaims = idclaims_value
+            };
+
+            rolClaims_Repository.Insert(new_rolclaims);
+        }
+
+        public void DeleteRolClaims(int idrolclaims_value)
+        {
+            RolClaims_Repository rolClaims_Repository = new RolClaims_Repository();
+            Rolclaims result_rolclaims = rolClaims_Repository.GetById(idrolclaims_value);
+
+            rolClaims_Repository.Delete(result_rolclaims);
         }
     }
 }

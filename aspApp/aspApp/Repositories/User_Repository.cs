@@ -18,5 +18,10 @@ namespace aspApp.Repositories
         {
             return Context.User.Include(x => x.IdRolNavigation).FirstOrDefault(x => x.Id == id_value);
         }
+
+        public IEnumerable<User> GetUsersBy_IdRol(int idrol_value)
+        {
+            return Context.User.Where(x => x.IdRol == idrol_value);
+        }
     }
 }

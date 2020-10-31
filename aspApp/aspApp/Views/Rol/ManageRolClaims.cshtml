@@ -1,0 +1,55 @@
+﻿@model aspApp.ViewModels.Rol_RolClaims_VM
+@inject aspApp.Services.fkLists sfklists
+@{
+    ViewData["Title"] = "ManageRolClaims";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int x = 1;
+}
+
+<h2>Rol - ManageRolClaims</h2>
+
+<div class="content">
+    <form action="~/Rol/AddRolClaims" method="post">
+        <input type="text" asp-for="Rol_Item.Id" name="idrol_value" readonly />
+        <input type="text" asp-for="Rol_Item.Name" readonly />
+
+        <select name="idclaims_value"
+                asp-items="@(new SelectList(sfklists.GetClaims_List(), "Id", "DisplayName", ViewBag.IdClaims))">
+            <option value="0">Select Claim</option>
+        </select>
+
+        <input type="submit" value="Add Claim" />
+        <a href="~/Rol">Go back</a>
+    </form>
+</div>
+
+<div class="content">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Claim</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Rolclaims_List)
+            {
+                <tr>
+                    <td>@x</td>
+                    <td>@item.Id</td>
+                    <td>@item.IdClaimsNavigation.DisplayName</td>
+                    <td>
+                        <form action="~/Rol/DeleteRolClaims/" method="post">
+                            <input type="hidden" value="@item.Id" name="idrolclaims_value" />
+                            <input type="submit" value="Delete" />
+                        </form>
+                    </td>
+                </tr>
+
+                x++;
+            }
+        </tbody>
+    </table>
+</div>

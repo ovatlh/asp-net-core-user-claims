@@ -16,6 +16,11 @@ namespace aspApp.Repositories
 
         public IEnumerable<Rolclaims> GetRolclaimsBy_IdRol_With_Navigation(int idrol_value)
         {
+            return Context.Rolclaims.Include(x => x.IdRolNavigation).Include(x => x.IdClaimsNavigation).Where(x => x.IdRol == idrol_value);
+        }
+
+        public IEnumerable<Rolclaims> GetRolclaimsBy_IdRol(int idrol_value)
+        {
             return Context.Rolclaims.Where(x => x.IdRol == idrol_value);
         }
 
