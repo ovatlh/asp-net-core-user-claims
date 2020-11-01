@@ -14,7 +14,7 @@
         <input type="text" asp-for="Rol_Item.Name" readonly />
 
         <select name="idclaims_value"
-                asp-items="@(new SelectList(sfklists.GetClaims_List(), "Id", "DisplayName", ViewBag.IdClaims))">
+                asp-items="@(new SelectList(sfklists.GetClaimsDontHaveBy_IdRol_List(ViewBag.IdRol), "Id", "DisplayName", ViewBag.IdClaims))">
             <option value="0">Select Claim</option>
         </select>
 

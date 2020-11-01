@@ -21,6 +21,12 @@ namespace aspApp.Services
             return claims_Repository.GetAll();
         }
 
+        public IEnumerable<Claims> GetClaimsDontHaveBy_IdRol_List(int idrol_value)
+        {
+            Claims_Repository claims_Repository = new Claims_Repository();
+            return claims_Repository.GetClaimsDontHaveBy_IdRol_List(idrol_value);
+        }
+
         public IEnumerable<Rolclaims> GetRolclaims_List()
         {
             RolClaims_Repository rolClaims_Repository = new RolClaims_Repository();

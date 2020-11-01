@@ -43,6 +43,7 @@ namespace aspApp.Controllers
         public IActionResult ManageRolClaims(int id)
         {
             Rol_RolClaims_Repository rol_RolClaims_Repository = new Rol_RolClaims_Repository();
+            ViewBag.IdRol = id;
             return View(rol_RolClaims_Repository.GetRolClaims_VM(id));
         }
 
@@ -89,6 +90,7 @@ namespace aspApp.Controllers
             rol_RolClaims_Repository.AddRolClaims(idrol_value, idclaims_value);
 
             Rol_RolClaims_VM result_rol_RolClaims_VM = rol_RolClaims_Repository.GetRolClaims_VM(idrol_value);
+            ViewBag.IdRol = idrol_value;
             return View("ManageRolClaims", result_rol_RolClaims_VM);
         }
 
@@ -103,6 +105,7 @@ namespace aspApp.Controllers
             rol_RolClaims_Repository.DeleteRolClaims(idrolclaims_value);
 
             Rol_RolClaims_VM result_rol_RolClaims_VM = rol_RolClaims_Repository.GetRolClaims_VM(result_rolclaims.IdRol);
+            ViewBag.IdRol = result_rolclaims.IdRol;
             return View("ManageRolClaims", result_rol_RolClaims_VM);
 
         }
