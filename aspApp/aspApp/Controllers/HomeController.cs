@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace aspApp.Controllers
 {
-    [Authorize(Policy = "HomePolicy")]
     public class HomeController : Controller
     {
+        [Authorize(Policy = "HomePolicy")]
         public IActionResult Index()
         {
             return View();
