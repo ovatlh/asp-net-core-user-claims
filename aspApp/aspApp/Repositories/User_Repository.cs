@@ -23,5 +23,10 @@ namespace aspApp.Repositories
         {
             return Context.User.Where(x => x.IdRol == idrol_value);
         }
+
+        public User GetUserBy_Username(string username_value)
+        {
+            return Context.User.FirstOrDefault(x => x.Username == username_value);
+        }
     }
 }

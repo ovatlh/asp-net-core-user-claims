@@ -5,41 +5,48 @@ using System.Threading.Tasks;
 using aspApp.Models;
 using aspApp.Repositories;
 using aspApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace aspApp.Controllers
 {
     public class RolController : Controller
     {
+        [Authorize(Policy = "RolListPolicy")]
         public IActionResult Index()
         {
             Rol_Repository rol_Repository = new Rol_Repository();
             return View(rol_Repository.GetAll());
         }
 
+        [Authorize(Policy = "RolAddPolicy")]
         public IActionResult Add()
         {
             return View();
         }
 
+        [Authorize(Policy = "RolEditPolicy")]
         public IActionResult Edit(int id)
         {
             Rol_Repository rol_Repository = new Rol_Repository();
             return View(rol_Repository.GetById(id));
         }
 
+        [Authorize(Policy = "RolDeletePolicy")]
         public IActionResult Delete(int id)
         {
             Rol_Repository rol_Repository = new Rol_Repository();
             return View(rol_Repository.GetById(id));
         }
 
+        [Authorize(Policy = "RolManageRolClaimsPolicy")]
         public IActionResult ManageRolClaims(int id)
         {
             Rol_RolClaims_Repository rol_RolClaims_Repository = new Rol_RolClaims_Repository();
             return View(rol_RolClaims_Repository.GetRolClaims_VM(id));
         }
 
+        [Authorize(Policy = "RolAddPolicy")]
         [HttpPost]
         public IActionResult Add(Rol rol)
         {
@@ -49,6 +56,7 @@ namespace aspApp.Controllers
             return RedirectToAction("Index", "Rol");
         }
 
+        [Authorize(Policy = "RolEditPolicy")]
         [HttpPost]
         public IActionResult Edit(Rol rol)
         {
@@ -58,6 +66,7 @@ namespace aspApp.Controllers
             return RedirectToAction("Index", "Rol");
         }
 
+        [Authorize(Policy = "RolDeletePolicy")]
         [HttpPost]
         public IActionResult Delete(Rol rol)
         {
@@ -70,6 +79,7 @@ namespace aspApp.Controllers
             return RedirectToAction("Index", "Rol");
         }
 
+        [Authorize(Policy = "RolAddRolClaimsPolicy")]
         [HttpPost]
         public IActionResult AddRolClaims(int idrol_value, int idclaims_value)
         {
@@ -82,6 +92,7 @@ namespace aspApp.Controllers
             return View("ManageRolClaims", result_rol_RolClaims_VM);
         }
 
+        [Authorize(Policy = "RolDeleteRolClaimsPolicy")]
         [HttpPost]
         public IActionResult DeleteRolClaims(int idrolclaims_value)
         {

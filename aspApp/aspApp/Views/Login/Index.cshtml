@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div>
+    <h2>Login</h2>
+
+    <br />
+
+    <form action="~/Login/Login" method="post">
+        <input type="text" name="username_value" placeholder="Username" />
+        <input type="password" name="password_value" placeholder="Password" />
+        <input type="submit" value="Login" />
+    </form>
+
+    @if (ViewBag.Errores == true)
+    {
+        @Html.ValidationSummary()
+    }
+</div>
