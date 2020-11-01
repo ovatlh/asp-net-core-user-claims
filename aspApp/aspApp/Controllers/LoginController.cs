@@ -33,6 +33,8 @@ namespace aspApp.Controllers
                     ModelState.AddModelError("Error", "You must enter your password.");
                 }
 
+                ViewBag.Username = username_value;
+                ViewBag.Password = password_value;
                 ViewBag.Errores = true;
                 //return RedirectToAction("Index", "Login");
                 return View("Index");
@@ -43,6 +45,8 @@ namespace aspApp.Controllers
 
             if (result_user == null)
             {
+                ViewBag.Username = username_value;
+                ViewBag.Password = password_value;
                 ViewBag.Errores = true;
                 ModelState.AddModelError("Error", "User not found.");
                 //return RedirectToAction("Index", "Login");
@@ -51,6 +55,8 @@ namespace aspApp.Controllers
 
             if (result_user.Password != password_value)
             {
+                ViewBag.Username = username_value;
+                ViewBag.Password = password_value;
                 ViewBag.Errores = true;
                 ModelState.AddModelError("Error", "Incorrect password.");
                 //return RedirectToAction("Index", "Login");
@@ -76,6 +82,8 @@ namespace aspApp.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            ViewBag.Username = username_value;
+            ViewBag.Password = password_value;
             ViewBag.Errores = true;
             ModelState.AddModelError("Error", "Incorrect data.");
             //return RedirectToAction("Index", "Login");

@@ -9,8 +9,8 @@
     <br />
 
     <form action="~/Login/Login" method="post">
-        <input type="text" name="username_value" placeholder="Username" />
-        <input type="password" name="password_value" placeholder="Password" />
+        <input type="text" name="username_value" placeholder="Username" value="@ViewBag.Username"/>
+        <input type="password" name="password_value" placeholder="Password" value="@ViewBag.Password" />
         <input type="submit" value="Login" />
     </form>
 
