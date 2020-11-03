@@ -78,7 +78,13 @@ namespace aspApp
 
                 new PolicyItem(){PolicyContent = "RolManageRolClaimsPolicy", PolicyClaim = "Rol ManageRolClaims"},
                 new PolicyItem(){PolicyContent = "RolAddRolClaimsPolicy", PolicyClaim = "Rol AddRolClaims"},
-                new PolicyItem(){PolicyContent = "RolDeleteRolClaimsPolicy", PolicyClaim = "Rol DeleteRolClaims"}
+                new PolicyItem(){PolicyContent = "RolDeleteRolClaimsPolicy", PolicyClaim = "Rol DeleteRolClaims"},
+
+                new PolicyItem(){PolicyContent = "StartPageListPolicy", PolicyClaim = "StartPage List"},
+                new PolicyItem(){PolicyContent = "StartPageViewPolicy", PolicyClaim = "StartPage View"},
+                new PolicyItem(){PolicyContent = "StartPageAddPolicy", PolicyClaim = "StartPage Add"},
+                new PolicyItem(){PolicyContent = "StartPageEditPolicy", PolicyClaim = "StartPage Edit"},
+                new PolicyItem(){PolicyContent = "StartPageDeletePolicy", PolicyClaim = "StartPage Delete"}
             };
 
             services.AddAuthorization(options => 
