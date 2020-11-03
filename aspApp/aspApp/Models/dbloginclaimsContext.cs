@@ -18,6 +18,7 @@ namespace aspApp.Models
         public virtual DbSet<Claims> Claims { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<Rolclaims> Rolclaims { get; set; }
+        public virtual DbSet<Startpage> Startpage { get; set; }
         public virtual DbSet<User> User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -52,14 +53,27 @@ namespace aspApp.Models
             {
                 entity.ToTable("rol");
 
+                entity.HasIndex(e => e.IdStartPage)
+                    .HasName("fk_rol_startpage1_idx");
+
                 entity.Property(e => e.Id)
                     .HasColumnName("ID")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.IdStartPage)
+                    .HasColumnName("idStartPage")
                     .HasColumnType("int(11)");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasColumnName("name")
                     .HasColumnType("varchar(45)");
+
+                entity.HasOne(d => d.IdStartPageNavigation)
+                    .WithMany(p => p.Rol)
+                    .HasForeignKey(d => d.IdStartPage)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_rol_startpage1");
             });
 
             modelBuilder.Entity<Rolclaims>(entity =>
@@ -95,6 +109,23 @@ namespace aspApp.Models
                     .HasForeignKey(d => d.IdRol)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_rol_has_claim_rol");
+            });
+
+            modelBuilder.Entity<Startpage>(entity =>
+            {
+                entity.ToTable("startpage");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnType("varchar(45)");
+
+                entity.Property(e => e.Url)
+                    .IsRequired()
+                    .HasColumnType("varchar(300)");
             });
 
             modelBuilder.Entity<User>(entity =>
