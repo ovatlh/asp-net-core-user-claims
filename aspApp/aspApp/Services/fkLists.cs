@@ -32,5 +32,11 @@ namespace aspApp.Services
             RolClaims_Repository rolClaims_Repository = new RolClaims_Repository();
             return rolClaims_Repository.GetAll();
         }
+
+        public IEnumerable<Startpage> GetStartpages_List()
+        {
+            StartPage_Repository startPage_Repository = new StartPage_Repository();
+            return startPage_Repository.GetAll();
+        }
     }
 }

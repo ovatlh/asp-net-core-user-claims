@@ -1,0 +1,17 @@
+﻿@model aspApp.Models.Startpage
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StartPage - Edit</h2>
+
+<div class="content">
+    <form action="~/StartPage/Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="text" asp-for="Name" placeholder="Name" />
+        <input type="text" asp-for="Url" placeholder="Url" />
+        <input type="submit" value="Save" />
+        <a href="~/StartPage">Cancel</a>
+    </form>
+</div>

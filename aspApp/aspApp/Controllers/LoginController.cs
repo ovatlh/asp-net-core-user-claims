@@ -66,7 +66,10 @@ namespace aspApp.Controllers
             if (result_user != null && result_user.Username == username_value && result_user.Password == password_value)
             {
                 RolClaims_Repository rolClaims_Repository = new RolClaims_Repository();
+                Rol_Repository rol_Repository = new Rol_Repository();
+
                 IEnumerable<Rolclaims> result_rolclaimsList = rolClaims_Repository.GetRolclaimsBy_IdRol_With_Navigation(result_user.IdRol);
+                Rol result_rol = rol_Repository.GetRolBy_Id_With_Navigation(result_user.IdRol);
 
                 List<Claim> list_claims = new List<Claim>();
                 foreach (var item in result_rolclaimsList)
@@ -79,7 +82,8 @@ namespace aspApp.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Index", "Home");
+                return Redirect(result_rol.IdStartPageNavigation.Url);
             }
 
             ViewBag.Username = username_value;

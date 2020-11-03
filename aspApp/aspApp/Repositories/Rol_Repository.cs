@@ -1,4 +1,5 @@
 ﻿using aspApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,16 @@ namespace aspApp.Repositories
                 user_Repository.Context.RemoveRange(result_users);
                 user_Repository.Context.SaveChanges();
             }
+        }
+
+        public Rol GetRolBy_Id_With_Navigation(int idrol_value)
+        {
+            return Context.Rol.Include(x => x.IdStartPageNavigation).FirstOrDefault(x => x.Id == idrol_value);
+        }
+
+        public IEnumerable<Rol> GetRolsWith_Navigation()
+        {
+            return Context.Rol.Include(x => x.IdStartPageNavigation);
         }
     }
 }

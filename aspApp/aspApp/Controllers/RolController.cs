@@ -16,7 +16,8 @@ namespace aspApp.Controllers
         public IActionResult Index()
         {
             Rol_Repository rol_Repository = new Rol_Repository();
-            return View(rol_Repository.GetAll());
+            //return View(rol_Repository.GetAll());
+            return View(rol_Repository.GetRolsWith_Navigation());
         }
 
         [Authorize(Policy = "RolAddPolicy")]
@@ -30,13 +31,15 @@ namespace aspApp.Controllers
         {
             Rol_Repository rol_Repository = new Rol_Repository();
             return View(rol_Repository.GetById(id));
+            //return View(rol_Repository.GetRolBy_Id_With_Navigation(id));
         }
 
         [Authorize(Policy = "RolDeletePolicy")]
         public IActionResult Delete(int id)
         {
             Rol_Repository rol_Repository = new Rol_Repository();
-            return View(rol_Repository.GetById(id));
+            //return View(rol_Repository.GetById(id));
+            return View(rol_Repository.GetRolBy_Id_With_Navigation(id));
         }
 
         [Authorize(Policy = "RolManageRolClaimsPolicy")]

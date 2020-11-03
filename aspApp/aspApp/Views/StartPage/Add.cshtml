@@ -1,0 +1,16 @@
+﻿@model aspApp.Models.Startpage
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StartPage - Add</h2>
+
+<div class="content">
+    <form action="~/StartPage/Add" method="post">
+        <input type="text" asp-for="Name" placeholder="Name" />
+        <input type="text" asp-for="Url" placeholder="Url" />
+        <input type="submit" value="Add" />
+        <a href="~/StartPage">Cancel</a>
+    </form>
+</div>

@@ -1,4 +1,5 @@
 ﻿@model aspApp.Models.Rol
+@inject aspApp.Services.fkLists sfklists
 @{
     ViewData["Title"] = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,6 +10,12 @@
 <div class="content">
     <form action="~/Rol/Add" method="post">
         <input type="text" asp-for="Name" placeholder="Rol" />
+
+        <select asp-for="IdStartPage"
+                asp-items="@(new SelectList(sfklists.GetStartpages_List(), "Id", "Name", ViewBag.IdStartPage))">
+            <option value="0">Select StartPage</option>
+        </select>
+
         <input type="submit" value="Add" />
         <a href="~/Rol">Cancel</a>
     </form>

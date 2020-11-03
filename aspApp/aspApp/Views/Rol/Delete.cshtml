@@ -9,7 +9,14 @@
 <div class="content">
     <form action="~/Rol/Delete" method="post">
         <input type="text" asp-for="Id" readonly />
-        <input type="text" asp-for="Name" placeholder="Rol" readonly/>
+        <input type="text" asp-for="Name" placeholder="Rol" readonly />
+
+        <input type="text" asp-for="IdStartPage" readonly />
+        <input type="text" asp-for="IdStartPageNavigation" readonly />
+        <input type="text" asp-for="IdStartPageNavigation.Id" readonly />
+        <input type="text" asp-for="IdStartPageNavigation.Name" readonly />
+        <input type="text" asp-for="IdStartPageNavigation.Url" readonly />
+
         <input type="submit" value="Delete" />
         <a href="~/Rol">Cancel</a>
     </form>

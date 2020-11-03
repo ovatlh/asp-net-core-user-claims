@@ -1,0 +1,17 @@
+﻿@model aspApp.Models.Startpage
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StartPage - Delete</h2>
+
+<div class="content">
+    <form action="~/StartPage/Delete" method="post">
+        <input type="text" asp-for="Id" readonly />
+        <input type="text" asp-for="Name" placeholder="Name" readonly />
+        <input type="text" asp-for="Url" placeholder="Url" readonly />
+        <input type="submit" value="Delete" />
+        <a href="~/StartPage">Cancel</a>
+    </form>
+</div>
