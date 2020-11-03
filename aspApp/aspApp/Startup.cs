@@ -84,7 +84,9 @@ namespace aspApp
                 new PolicyItem(){PolicyContent = "StartPageViewPolicy", PolicyClaim = "StartPage View"},
                 new PolicyItem(){PolicyContent = "StartPageAddPolicy", PolicyClaim = "StartPage Add"},
                 new PolicyItem(){PolicyContent = "StartPageEditPolicy", PolicyClaim = "StartPage Edit"},
-                new PolicyItem(){PolicyContent = "StartPageDeletePolicy", PolicyClaim = "StartPage Delete"}
+                new PolicyItem(){PolicyContent = "StartPageDeletePolicy", PolicyClaim = "StartPage Delete"},
+
+                new PolicyItem(){PolicyContent = "AreaAdminPolicy", PolicyClaim = "AreaAdmin Home"}
             };
 
             services.AddAuthorization(options => 
